@@ -1,0 +1,236 @@
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+}
+
+    body {
+         margin: 0;
+         padding: 0;
+         overflow: hidden; /* Para cobrir toda a página */
+         font-family: "Anton", sans-serif;     }
+
+     :root {
+     --background: #060608;
+     --color: #FAFAFA;
+    }
+
+    html, body {
+     width: 100%;
+     height: 100%;
+     font-family: Arial;
+    }
+
+    body {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background: var(--background);
+    }
+
+
+    .video-container  {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      // -1 garante que está atrás de tudo
+      z-index: -1;
+      opacity: 0.6;
+      // garante que o video não extrapola a largura
+      overflow: hidden;
+    }
+
+    .videoBG {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .PL1 {
+        width:240px;
+        height:200px;
+    }
+
+    .musicBG{
+
+        padding-right: 30%;
+        opacity: 0.1;
+        padding-bottom: 4%;
+    }
+
+
+    .container {
+      color: var(--color);
+      font-size: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      padding-left: 6%;
+      padding-top: 5%;
+}
+
+    .title {
+        max-width: max-content;
+        text-align: right;
+    }
+
+       .JeffOzzy {
+      display: grid;
+      grid-template-columns: 1fr;
+}
+
+.JeffOzzy span {
+  font-weight: bold;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  font-size: 4rem;
+  --stack-height: calc(100% / var(--stacks) - 1px);
+  --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
+  --clip-top: calc(var(--stack-height) * var(--index));
+  --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
+  clip-path: inset(var(--clip-top) 0 var(--clip-bottom) 0);
+  animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
+  font-size: 90px;
+
+
+}
+
+.JeffOzzy span:nth-child(odd) { --glitch-translate: 8px; }
+.JeffOzzy span:nth-child(even) { --glitch-translate: -8px; }
+
+@keyframes stack {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%);
+    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+  }
+  60% {
+    opacity: 0.5;
+    transform: translateX(50%);
+  }
+  80% {
+    transform: none;
+    opacity: 1;
+    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: -2px 3px 0 red, 2px -3px 0 blue;
+    transform: translate(var(--glitch-translate));
+  }
+  2% {
+    text-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+  }
+  4%, 100% {  text-shadow: none; transform: none; }
+}
+
+
+
+
+    /* Para telas maiores, iguais ou menores a 2380x1080 (pc) */
+@media screen and (min-width: 2380px) {
+    .container {
+        padding-left: 8%;
+        padding-top: 10%;
+        padding-bottom: 44%;
+    }
+
+    .musicBG {
+        padding-right: 30%;
+
+    }
+
+    .title {
+        font-size: 2rem;
+        padding-bottom: 40%;
+
+    }
+
+    .JeffOzzy span {
+        font-size: 5rem;
+
+    }
+}
+        /* Para telas maiores ou iguais a 1920x1080 (PC) */
+@media screen and (max-width: 1920px){
+    .container {
+        padding-left: 10%;
+        padding-top: 10%;
+    }
+
+    .musicBG {
+        padding-right: 29%;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .JeffOzzy span {
+        font-size: 5rem;
+    }
+}
+     /* Para telas maiores ou iguais a 768x1024 (tablet) */
+@media screen and (max-width: 768px) {
+    .container {
+        padding-left: 8%;
+        padding-top: 10%;
+    }
+
+    .musicBG {
+        padding-right: 1%;
+        padding-bottom: 13%;
+    }
+    .PL1 {
+         width:200px;
+        height:120px;
+    }
+
+    .title {
+        font-size: 1.8rem;
+    }
+
+    .JeffOzzy span {
+        font-size: 4rem;
+    }
+}
+        /* Para telas menores que 450px (celular) */
+@media screen and (max-width: 450px) {
+    body{
+        display: block;
+    }
+
+    .videoBG {
+
+    }
+    .container {
+        padding-left: 5%;
+        padding-top: 5%;
+        height: auto;
+    }
+
+    .musicBG {
+        padding: 65% 0 0 90%;
+
+    }
+
+    .PL1 {
+       padding: 0;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .JeffOzzy span {
+        font-size: 3rem;
+    }
+}
