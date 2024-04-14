@@ -4,31 +4,27 @@
         padding: 0;
         box-sizing: border-box;
 }
+    html, body {
+     width: 100%;
+     height: 100%;
+    }
 
     body {
          margin: 0;
          padding: 0;
          overflow: hidden; /* Para cobrir toda a página */
-         font-family: "Anton", sans-serif;     }
+         font-family: "Anton", sans-serif;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+            background: var(--background);
+    }
 
      :root {
      --background: #060608;
      --color: #FAFAFA;
     }
-
-    html, body {
-     width: 100%;
-     height: 100%;
-     font-family: Arial;
-    }
-
-    body {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     background: var(--background);
-    }
-
 
     .video-container  {
       position: absolute;
@@ -50,18 +46,14 @@
         object-fit: cover;
     }
     .PL1 {
-        width:240px;
-        height:200px;
-
+        position: absolute;
     }
 
     .musicBG{
-
-        padding-right: 30%;
-        padding-bottom: 29%;
-
+        padding-right: 40%;
+        padding-bottom: 25%;
+        opacity: 0.5;
     }
-
 
     .container {
       color: var(--color);
@@ -79,7 +71,7 @@
         text-align: right;
     }
 
-       .JeffOzzy {
+    .JeffOzzy {
       display: grid;
       grid-template-columns: 1fr;
 }
@@ -97,6 +89,12 @@
   animation: stack 340ms cubic-bezier(.46,.29,0,1.24) 1 backwards calc(var(--index) * 120ms), glitch 2s ease infinite 2s alternate-reverse;
   font-size: 90px;
 
+}
+
+.ilumi {
+    position: absolute;
+    bottom: 50.9%;
+    left: 23%;
 
 }
 
@@ -134,7 +132,76 @@
   4%, 100% {  text-shadow: none; transform: none; }
 }
 
+ul {
+  position: relative;
+  display: flex;
+}
 
+li {
+  list-style: none;
+}
+
+label {
+  position: relative;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 80px;
+  width: 80px;
+  z-index: 100;
+}
+
+li div {
+  position: relative;
+  height: 65px;
+  width: 65px;
+  background: #18191f;
+  color: #555;
+  display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  cursor: pointer;
+  margin: 0 4px;
+  border-radius: 20px;
+  box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05),
+    4px 4px 6px rgba(0, 0, 0, 0.2),
+    inset -1px -1px 4px rgba(255, 255, 255, 0.05),
+    inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* div:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 75px;
+  height: 38px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+} */
+
+input[type="checkbox"]:checked ~ div {
+  box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.05),
+    inset 4px 4px 6px rgba(0, 0, 0, 0.2);
+  color: yellow;
+  text-shadow: 0 0 15px yellow, 0 0 25px yellow;
+  animation: glow 1.5s linear infinite;
+}
+
+@keyframes glow {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
 
 
     /* Para telas maiores, iguais ou menores a 2380x1080 (pc) */
@@ -144,9 +211,14 @@
         padding-top: 10%;
         padding-bottom: 44%;
     }
+    .ilumi {
 
+        padding-left:7%;
+        padding-bottom: 0.8%;
+    }
     .musicBG {
         padding-right: 30%;
+        padding-bottom: 28%;
 
     }
 
@@ -170,6 +242,7 @@
 
     .musicBG {
         padding-right: 29%;
+        padding-bottom: 30%;
     }
 
     .title {
@@ -189,7 +262,7 @@
 
     .musicBG {
         padding-right: 1%;
-        padding-bottom: 13%;
+        padding-bottom: 100%;
     }
     .PL1 {
          width:200px;
@@ -215,12 +288,12 @@
     }
     .container {
         padding-left: 5%;
-        padding-top: 5%;
+        padding-top: 6%;
         height: auto;
     }
 
     .musicBG {
-        padding: 65% 0 0 90%;
+        padding-top: 20%;
 
     }
 
