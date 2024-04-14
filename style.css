@@ -41,6 +41,7 @@
       opacity: 0.6;
       // garante que o video não extrapola a largura
       overflow: hidden;
+
     }
 
     .videoBG {
@@ -51,13 +52,14 @@
     .PL1 {
         width:240px;
         height:200px;
+
     }
 
     .musicBG{
 
         padding-right: 30%;
-        opacity: 0.1;
-        padding-bottom: 4%;
+        padding-bottom: 29%;
+
     }
 
 
